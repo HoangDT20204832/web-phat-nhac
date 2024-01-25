@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="/fonts/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="shortcut icon" href="#">
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.js"></script>
+
+</head>
+<body>
+    <div class="app__music ">
+        <div class="music__header">
+
+        </div>
+
+        <div class="music__container">
+            <div class="music__dashboard">
+                <!--Heading-->
+                <div class="music__dashboard-heading">
+                    <h3>Now playing</h3>
+                    <h2>Em của ngày hôm qua</h2>
+                </div>
+                <!-- CD -->
+                <div class="music__dashboard-cd">
+                    <div class="music-cd-img" style="background-image: url('https://media.tinmoi.vn/2014/09/10/10639560_887525397933294_854932142114821389_n.jpg') "></div>
+                </div>
+                <!-- Setting -->
+                <div class="music__dashboard-setting">
+                    <i class="icon-setting fa-solid fa-gear"></i>
+                    <i class="icon-bar fa-solid fa-bars"></i>
+                    <div class="music__menu-amplification none">
+                        <div class="music__menu-exit">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <div class="music__menu-setting">
+                                <div class="music__menu-control">
+                                    <label class="music__volumeInput">Volume</label>
+                                    <div class="music__wrap-input">
+                                        <input type="range" id="volumeInput"  class="btnInputMusic" min="0" max="100" step="1" value="100">
+                                        <span class="sliderInput">100</span> 
+                                    </div> 
+                                </div>
+                                  
+                                  <div class="music__menu-control">
+                                    <label class="music__gainInput">Gain</label>
+                                    <div class="music__wrap-input">
+                                        <input type="range" id="gainInput" class="btnInputMusic" min="1" max="100" step="1" value="1">
+                                        <span class="sliderInput">1</span>  
+                                    </div>
+                                </div>
+
+                                  <div class="music__menu-control">
+                                    <label class="music__stereoInput">Stereo</label>
+                                    <div class="music__wrap-input">
+                                        <input type="range" id="stereoInput" class="btnInputMusic" min="-1" max="1" step="0.1" value="0">
+                                        <span class="sliderInput">0</span>  
+                                    </div>
+                                </div>
+                                  <div class="music__menu-control">
+                                    <label for="" class="music__speedInput">Speed</label>
+                                    <div class="music__wrap-input">
+                                        <input type="range" id="speedInput" class="btnInputMusic" min="0.5" max="2" step="0.1" value="1">
+                                        <span class="sliderInput">1</span> 
+                                    </div> 
+                                </div>
+                            <!-- </div> -->
+<!-- 
+                             <div class="music__menu-bass">
+                                Tăng giảm bass
+                                <br>
+                                <button id="btn-bassUp">Bass UP</button>
+                                <button id="btn-bassDown">Bass Down</button>
+                            </div> -->
+
+                                <canvas id="waveformCanvas"></canvas>
+                                
+                                <canvas id="spectrogramCanvas"></canvas>
+
+                   
+                        </div>
+                    </div>
+
+                    <div class="music__menu-bar none">
+                        <div class="music__menu-out">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+
+                    <!-- <a href="/music-list" style="text-decoration: none;"> -->
+                        <div class="music__menu-list-listen">
+                            <div class="music_menu-header">
+                                <img src="https://nhadepso.com/wp-content/uploads/2023/01/hinh-trai-tim-dep_3.jpg" alt="">
+                                <div class="music__menu-list-favourite-title">
+                                    Danh sách bài hát yêu thích
+                                </div>
+                            </div>
+                            <div class="favouriteList">
+
+                            </div>
+                        </div>
+                    <!-- </a> -->
+
+                        <!-- <div class="music__menu-list-listen">
+                            <img src="https://vcdn-giaitri.vnecdn.net/2016/12/30/03-1857-1483088427.jpg" alt="">
+                            <div class="music__menu-list-favourite-title">
+                                Top bài hát nghe nhiều nhất
+                            </div>
+                        </div> -->
+
+                        <a class="music-log-out-link" href="/home">
+                            <div class="music__menu-log-out">
+                                Đăng xuất
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Control -->
+                <div class="music__dashboard-control">
+                    <div class="btn btn-repeat">
+                        <i class= "icon-repeat fa-solid fa-repeat"></i>
+                    </div>
+                    <div class="btn btn-back">
+                        <i class="icon-back fa-solid fa-backward-step"></i>
+                    </div>
+                    <div class="btn btn-toggle-play">
+                        <i class="icon-pause fa-solid fa-pause"></i>
+                        <i class="icon-play fa-solid fa-play"></i>
+                    </div>
+                    <div class="btn btn-next">
+                        <i class="icon-next fa-sharp fa-solid fa-forward-step"></i>
+                    </div>
+                    <div class="btn btn-random">
+                        <i class="icon-random fa-solid fa-shuffle"></i>
+                    </div>
+
+                </div>
+                
+                
+                <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+      
+                <!-- <audio id="audio" src=""></audio> -->
+            </div>
+
+            <div class="music__playlist">
+                <div class="music__song">
+                    <div class="music__song-img" style="background-image: url('https://media.tinmoi.vn/2014/09/10/10639560_887525397933294_854932142114821389_n.jpg');">
+                    </div>
+
+                    <div class="music__song-body">
+                        <div class="music__song-name">Music name</div>
+                        <div class="music__song-singer">Singer</div>
+                    </div>
+
+                    <div class="music__song-option">
+                        <!-- ............................... -->
+                    </div>
+                    
+                </div>
+                <div class="music__song">
+                    <div class="music__song-img" style="background-image: url('https://media.tinmoi.vn/2014/09/10/10639560_887525397933294_854932142114821389_n.jpg');">
+                    </div>
+
+                    <div class="music__song-body">
+                        <div class="music__song-name">Music name</div>
+                        <div class="music__song-singer">Singer</div>
+                    </div>
+
+                    <div class="music__song-option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+                <div class="music__song">
+                    <div class="music__song-img" style="background-image: url('https://media.tinmoi.vn/2014/09/10/10639560_887525397933294_854932142114821389_n.jpg');">
+                    </div>
+
+                    <div class="music__song-body">
+                        <div class="music__song-name">Music name</div>
+                        <div class="music__song-singer">Singer</div>
+                    </div>
+
+                    <div class="music__song-option">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="music__footer">
+
+        </div>
+    </div>
+
+    <script src="javascript/app.js"></script>
+
+</body>
+</html>

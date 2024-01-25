@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  
+      <!-- Popper JS -->
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  
+      <!-- Latest compiled JavaScript -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" href="/fonts/fontawesome-free-6.3.0-web/fontawesome-free-6.3.0-web/css/all.min.css">
+
+</head>
+<body>
+    <!-- <% message= 'Nhấn login để đăng nhập' %> -->
+    <div class='login-background'>
+        <div class='login-container'>
+            <div class='login-content row'>
+                <form class="form-login" action="/post-login" method="POST"> 
+                    <div class='col-12 text-login'>Login</div>
+                    <div class='col-12 form-group login-input'>
+                        <label>Username</label>
+                        <input type='text' 
+                               class='form-control' 
+                               placeholder='Enter your username'
+                               name="email"
+    
+                        />
+                    </div>
+                    <div class='col-12 form-group login-input'>
+                        <label>Password</label>
+                        <div class='custom-input-password'>
+                            <input 
+                                type="password"
+                                class='form-control' 
+                                placeholder='Enter your password'
+                                name="password"
+
+    
+                            />
+                            <!-- <span onClick={() => {this.handleShowHidePassword()}}>
+                                <i class={this.state.isShowPassword ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
+                            </span> -->
+                        </div>
+                    </div>
+                    <div class='col-12' style="color: red;" id="divMessage">
+                        <%= messagee  %>
+                    </div>
+                    <div class='col-12'>
+                        <button class='btn-login'>Login</button>
+                    </div>
+                    <div class='col-12 text-sign-up-login'>
+                        <span class='forgot-password'>Forgot your password?</span>
+                        <a style="text-decoration: none;" href="/crud">
+                            <span class='other-login_sign-up'>Sign Up</span>
+                        </a>
+                    </div>
+                    <div class='col-12 text-center mt-3'>
+                        <span class='text-other-login'>Or Login with:</span>
+                    </div>
+                    <div class='col-12 social-login'>
+                        <div class="google">
+                            <i class="fab fa-google-plus-g "></i>
+                        </div>
+                        <div class="facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
+</html>

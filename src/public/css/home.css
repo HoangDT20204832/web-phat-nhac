@@ -1,0 +1,326 @@
+:root {
+    --primary-color:#EE4D2D;
+    --white-color :#fff;
+    --black-color: #000;
+    --text-color: #333;
+    --border-color:#dbdbdb;
+    --star-gold-color: #ffce3e;
+    --header-high:120px;
+    --navbar-high: 34px;
+    --header-with-search-high: calc(var(--header-high) - var(--navbar-high));
+}
+
+*{
+    /* tất cả các lớp con đều kế thừa thuộc tính của lớp cha */
+    box-sizing: inherit;
+}
+
+html{
+    /* font-size: 100%; mặc đinh các trình duyệt hiểu là 16px */
+    font-size: 62.5%; /*tương đương với 10px*/ 
+    /* 1 rem tinh theo hmtl nen = 10px */
+    line-height: 1.6rem;    /*độ cao chữ*/
+    font-family: 'Roboto', sans-serif; /*sans-serif: tập hợp những phông chữ ko có chân -> khi phông roboto bị lỗi thì sẽ dùng phông sans-serif*/
+    box-sizing: border-box; /*giúp kích thuoc cua các box ko bị thay đổi khi padding hay bottom*/
+    background-color: #121212;
+}
+
+/* Responsive */
+.grid{
+    width: 1200px;
+    max-width: 100%; /*giúp khi kích thước các màn hình <1200px thì sẽ giảm kích thước grid về = kích thc màn hình đó*/
+    margin: 0 auto; /*giúp tự đọng căn giữa khối này khi nằm trong 1 khối khác */
+}
+
+.grid__full-width { /*khi ko muốn sử dụng grid có width= 1200px */
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+/* Test */
+.grid__column-2{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%;
+}
+
+.grid__column-3{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 25%
+}
+.grid__column-2-3{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 18.75%
+}
+
+.grid__column-2-4{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-9{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 75%;
+}
+.grid__column-10{
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3333%;
+}
+
+
+
+
+.category{
+    background-color: #121212;
+    /* height: 1000px; */
+}
+
+.category__heading{
+    background-color: #333;
+    /* display: flex; */
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+.category__heading-list{
+    display: flex;
+    padding: 15px 0 15px 0;
+    align-items: center;
+
+}
+.category__heading-icon{
+    color: #fff;
+    font-size: 20px;
+    margin-right: 22px;
+}
+
+.category__heading .category__heading-list:nth-child(n+2) .category__heading-icon{  
+    color: #989595;
+}
+
+.category__heading-title{
+  color: #fff;
+    font-size: 20px;
+}
+
+.category__heading .category__heading-list:nth-child(n+2) .category__heading-title{  
+    color: #989595;
+}
+.category__body{
+    background-color: #333;
+    border-radius: 10px;
+    margin-top: 5px;
+    height: 550px;
+}
+
+.category__body-heaading{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.category__body-text{
+    color: var(--white-color);
+    font-size: 22px;
+}
+
+.category__body-icon{
+    color: var(--white-color);
+    font-size: 20px;
+
+}
+
+.category__body-container{
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #7d7676;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.category__body-container-text-1{
+    color: var(--white-color);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.category__body-container-text-2{
+    color: var(--white-color);
+    font-size: 12px;
+    margin-bottom: 25px;
+
+}
+
+.category__body-container-btn{
+    font-weight: 600;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    width: 160px;
+    height: 35px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 35px;
+    font-weight: 600;
+
+}
+
+.category__body-footer{
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.category__body-footer-link{
+    color: var(--white-color);
+    margin-bottom: 45px;
+    font-size: 14px;
+}
+
+.category__body-footer-btn{
+    width: 120px;
+    height: 35px;
+    color: var(--white-color);
+    background-color: #141313;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.music__container{
+    background-color: rgb(51,51,51);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+.music__container-title{
+    background-color: rgb(16, 16, 16, 0.9);
+    height: 70px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 900px;
+    top: 0;
+}
+
+.music__container-title-list-icon{
+    display: flex;
+    align-items: center;
+}
+
+.music__container-title-icon{
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    padding: 8px 10px 8px 10px;
+    margin-right: 8px;
+    
+}
+
+.music__container-title-list-btn{
+    display: flex;
+    align-items: center;
+}
+
+
+.music__container-title-btn{
+    color: var(--white-color);
+    font-size: 16px;
+    padding: 15px 20px;
+    /* background-color: var(--white-color); */
+    border-radius: 30px;
+}
+
+.music-login{
+    display: block;
+    background-color: var(--white-color);
+    font-weight: 600;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 15px 20px;
+    color: #000;
+}
+
+.music__container-body{
+    margin-top: 70px;
+}
+
+.music__container-body-texts{
+    display: flex;
+    height: 45px;
+    padding: 15px 20px;
+    justify-content: space-between;
+
+}
+
+.music__container-body-text{
+    color: var(--white-color);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.music__container-body-texts .music__container-body-text:nth-child(2){
+    color: rgba(239, 229, 229, 0.4);
+    font-size: 14px;
+}
+.music__container-body-list-music{
+   padding: 20px;
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.music__container-body-item-music{
+    background-color: rgb(29,29,29);
+    width: 202px;
+    padding: 11px;
+    border-radius: 5px;
+    margin-right: 12px;
+    margin-bottom: 10px;
+}
+.music__container-body-list-music .music__container-body-item-music:nth-child(4){
+    margin-right: 0;
+}
+
+.music__container-body-item-img{
+    width: 180px;
+    height: 180px;
+    border-radius: 5px;
+}
+
+.music__container-body-item-description{
+    padding: 10px 0;
+}
+
+.music__container-body-item-description1{
+    color: var(--white-color);
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 600;
+
+}
+
+.music__container-body-item-description2{
+    color: var(--white-color);
+    font-size: 12px;
+}

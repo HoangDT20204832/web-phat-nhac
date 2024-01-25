@@ -1,0 +1,31 @@
+body{
+    background: linear-gradient(135deg, rgba(224, 35, 212) 0%,rgba(253,187,45,1) 100%);
+
+}
+.form_sign-up{
+    margin: 50px auto 50px auto;
+    background-color: #fff;
+    padding: 10px 10px 20px 10px;
+    border-radius: 10px;
+
+}
+
+.sign-up-title{
+    text-align: center;
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.btn-submit{
+   margin: 10px 0 0 25px ;
+   padding: 5px 200px 5px 200px;
+   border-radius: 20px;
+   background: linear-gradient(135deg, rgba(224, 35, 212) 0%,rgba(253,187,45,1) 100%);
+}
+
+.other-login_sign-up{
+    color: red;
+    display: block;
+    margin: 10px 0 0 340px;
+}
